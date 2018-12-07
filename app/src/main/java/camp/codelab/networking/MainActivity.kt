@@ -23,25 +23,32 @@ class MainActivity : AppCompatActivity() {
                 .build()
 
         val weatherInterface = retrofit.create(WeatherInterface::class.java)
-        weatherInterface.getCityInfo(1979455)
-                .enqueue(object : Callback<City> {
-                    override fun onFailure(call: Call<City>, t: Throwable) {
-                        Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
-                    }
 
-                    override fun onResponse(call: Call<City>, response: Response<City>) {
+        val id = intent.getIntExtra("ID", -1)
+        if (id != -1) {
+            weatherInterface.getCityInfo(id)
+                    .enqueue(object : Callback<City> {
+                        override fun onFailure(call: Call<City>, t: Throwable) {
+                            Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
+                        }
 
-                        response.body()?.let {
-                            titleTextView.text = it.title
-                            timezoneTextView.text = it.timezone
-                            timeTextView.text = it.time
-                            weatherTextView.text = it.weather[0].theTemp.toString()
+                        override fun onResponse(call: Call<City>, response: Response<City>) {
+
+                            response.body()?.let {
+                                titleTextView.text = it.title
+                                timezoneTextView.text = it.timezone
+                                timeTextView.text = it.time
+                                weatherTextView.text = it.weather[0].theTemp.toString()
+                            }
+
+
                         }
 
 
-                    }
-
-
-                })
+                    })
+        } else {
+            Toast.makeText(this, "Unknown Error", Toast.LENGTH_LONG).show()
+            finish()
+        }
     }
 }

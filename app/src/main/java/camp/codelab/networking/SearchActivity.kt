@@ -3,7 +3,6 @@ package camp.codelab.networking
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
@@ -56,9 +55,9 @@ class SearchActivity : AppCompatActivity() {
                 })
     }
 
-    private fun prepareRecycleView(cityList: List<City>) {
+    fun prepareRecycleView(cityList: List<City>) {
 
-        recycleView.layoutManager = GridLayoutManager(this,2)
+        recycleView.layoutManager = GridLayoutManager(this, 2)
         recycleView.adapter = CityAdapter(cityList)
     }
 }

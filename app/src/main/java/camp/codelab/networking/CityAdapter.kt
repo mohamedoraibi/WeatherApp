@@ -1,5 +1,6 @@
 package camp.codelab.networking
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -27,11 +28,18 @@ class CityAdapter : RecyclerView.Adapter<CityAdapter.CityViewHolder> {
     }
 
 
-    class CityViewHolder : RecyclerView.ViewHolder {
+    inner class CityViewHolder : RecyclerView.ViewHolder {
         val view: View
 
         constructor(view: View) : super(view) {
             this.view = view
+            view.card.setOnClickListener {
+                val clickedCity = cityList[layoutPosition]
+                val cityId = clickedCity.id
+                val intent = Intent(view.context, MainActivity::class.java)
+                intent.putExtra("ID", cityId)
+                view.context.startActivity(intent)
+            }
         }
 
         fun setCity(city: City) {

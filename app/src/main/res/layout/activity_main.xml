@@ -10,16 +10,15 @@
         android:id="@+id/titleTextView"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="48dp"
         android:gravity="center"
         android:padding="8dp"
-        android:text="title"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/timezoneTextView"
@@ -27,7 +26,6 @@
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="timezone"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +39,6 @@
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="time"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +53,7 @@
         android:layout_height="40dp"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Title"
+        android:text="City Name"
         android:textColor="#03A9F4"
         android:textSize="18dp"
         android:textStyle="bold"
@@ -107,7 +104,6 @@
         android:layout_marginTop="36dp"
         android:gravity="center"
         android:padding="8dp"
-        android:text="TextView"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,5 +126,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/weatherTextView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Status Weather"
+        android:textColor="#FFC107"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
